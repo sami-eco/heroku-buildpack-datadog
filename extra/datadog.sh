@@ -344,8 +344,8 @@ else
   while ! nc -z localhost $DD_CMD_PORT; do
     sleep 1
     i=$((i+1))
-    if [ $i -gt 10 ]; then
-      echo "WARNING: API server not ready after 10 seconds."
+    if [ $i -gt 30 ]; then
+      echo "WARNING: API server not ready after 30 seconds."
       break
     fi
   done
@@ -362,8 +362,8 @@ else
   while ! [ -f ${DD_AUTH_TOKEN_FILE_PATH} ]; do
     sleep 1
     i=$((i+1))
-    if [ $i -gt 10 ]; then
-      echo "WARNING: Auth token file not found after 10 seconds."
+    if [ $i -gt 30 ]; then
+      echo "WARNING: Auth token file not found after 30 seconds."
       break
     fi
   done
